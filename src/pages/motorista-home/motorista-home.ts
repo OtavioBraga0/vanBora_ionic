@@ -24,7 +24,7 @@ export class MotoristaHomePage {
     let postData = new FormData();
     postData.append('Usuario_lng_Codigo', '1');
     this._http.post<Grupo[]>(
-      "http://localhost/faculdade/vanBora/grupo", 
+      "http://localhost/faculdade/vanBora_webservice/grupo", 
       postData
     ).subscribe(arrObjGrupo => {
       this.arrObjGrupo = arrObjGrupo;

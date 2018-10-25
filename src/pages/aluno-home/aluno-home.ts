@@ -11,7 +11,7 @@ import { Grupo } from '../../modelos/Grupo'
 })
 export class AlunoHomePage {
   
-  public arrObjGrupo;
+  public arrObjGrupo: Grupo[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private _http: HttpClient, private _loadingCtrl: LoadingController, private _alertCtrl: AlertController) { }
 
@@ -21,7 +21,7 @@ export class AlunoHomePage {
     let postData = new FormData();
     postData.append('Usuario_lng_Codigo', '1');
     this._http.post<Grupo[]>(
-      "http://localhost/faculdade/vanBora/grupo", 
+      "http://localhost/faculdade/vanBora_webservice/grupo", 
       postData
     ).subscribe(arrObjGrupo => {
       this.arrObjGrupo = arrObjGrupo;
