@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
 
-/**
- * Generated class for the AlunoHomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Grupo } from '../../modelos/Grupo'
 
 @IonicPage()
 @Component({
@@ -14,12 +10,30 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'aluno-home.html',
 })
 export class AlunoHomePage {
+  
+  public arrObjGrupo;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, private _http: HttpClient, private _loadingCtrl: LoadingController, private _alertCtrl: AlertController) { }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AlunoHomePage');
+    let loading = this._loadingCtrl.create({content: "Carregando Grupos ..."});
+    loading.present();
+    let postData = new FormData();
+    postData.append('Usuario_lng_Codigo', '1');
+    this._http.post<Grupo[]>(
+      "http://localhost/faculdade/vanBora/grupo", 
+      postData
+    ).subscribe(arrObjGrupo => {
+      this.arrObjGrupo = arrObjGrupo;
+      loading.dismiss();
+    },(erro => {
+      loading.dismiss();
+      this._alertCtrl.create({
+        title: "Falha",
+        subTitle: "Não foi possível carregar os Grupos. Tente novamente mais tarde!",
+        buttons: [{text: "OK"}]
+      }).present();
+    }))
   }
 
 }

@@ -8,16 +8,20 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { MotoristaHomePage } from '../pages/motorista-home/motorista-home';
 import { AlunoHomePage } from '../pages/aluno-home/aluno-home';
+import { HttpClientModule } from '@angular/common/http';
+import { GrupoPage } from '../pages/grupo/grupo';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     MotoristaHomePage,
-    AlunoHomePage
+    AlunoHomePage,
+    GrupoPage
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -25,7 +29,8 @@ import { AlunoHomePage } from '../pages/aluno-home/aluno-home';
     MyApp,
     HomePage,
     MotoristaHomePage,
-    AlunoHomePage
+    AlunoHomePage,
+    GrupoPage
   ],
   providers: [
     StatusBar,
