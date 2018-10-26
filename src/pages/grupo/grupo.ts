@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
-import { Aluno } from '../../modelos/Aluno';
+import { Usuario } from '../../modelos/Usuario';
+import { AppModule } from '../../app/app.module';
 
 @IonicPage()
 @Component({
@@ -10,7 +11,8 @@ import { Aluno } from '../../modelos/Aluno';
 })
 export class GrupoPage {
 
-  public arrObjAluno: Aluno[];
+  public arrObjAluno: Usuario[];
+  private _url:string = AppModule.getUrl();
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private _http: HttpClient, private _loadingCtrl: LoadingController, private _alertCtrl: AlertController) {
   }
@@ -21,8 +23,8 @@ export class GrupoPage {
     loading.present();
     let postData = new FormData();
     postData.append('Grupo_lng_Codigo', Grupo_lng_Codigo);
-    this._http.post<Aluno[]>(
-      "http://localhost/faculdade/vanBora_webservice/aluno",
+    this._http.post<Usuario[]>(
+      this._url + "aluno",
       postData
     ).subscribe((arrObjAluno) => {
       this.arrObjAluno = arrObjAluno;

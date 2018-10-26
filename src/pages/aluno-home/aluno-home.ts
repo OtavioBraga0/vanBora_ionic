@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController, AlertController
 import { HttpClient } from '@angular/common/http';
 
 import { Grupo } from '../../modelos/Grupo'
+import { AppModule } from '../../app/app.module';
 
 @IonicPage()
 @Component({
@@ -12,16 +13,18 @@ import { Grupo } from '../../modelos/Grupo'
 export class AlunoHomePage {
   
   public arrObjGrupo: Grupo[];
+  private _url:string = AppModule.getUrl();
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private _http: HttpClient, private _loadingCtrl: LoadingController, private _alertCtrl: AlertController) { }
 
   ionViewDidLoad() {
     let loading = this._loadingCtrl.create({content: "Carregando Grupos ..."});
     loading.present();
+    let Usuario_lng_Codigo = this.navParams.data;
     let postData = new FormData();
-    postData.append('Usuario_lng_Codigo', '1');
+    postData.append('Usuario_lng_Codigo', Usuario_lng_Codigo);
     this._http.post<Grupo[]>(
-      "http://localhost/faculdade/vanBora_webservice/grupo", 
+      this._url+"grupo", 
       postData
     ).subscribe(arrObjGrupo => {
       this.arrObjGrupo = arrObjGrupo;

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AlunoHomePage } from '../aluno-home/aluno-home';
-import { MotoristaHomePage } from '../motorista-home/motorista-home';
+import { CadastroPage } from '../cadastro/cadastro';
 
 @Component({
   selector: 'page-home',
@@ -12,11 +11,11 @@ export class HomePage {
   constructor(public navCtrl: NavController) {}
 
   selecionaHomeAluno(){
-    this.navCtrl.push(AlunoHomePage);
+    this.navCtrl.push(CadastroPage, "a");
   }
 
   selecionaHomeMotorista(){
-    this.navCtrl.push(MotoristaHomePage);
+    this.navCtrl.push(CadastroPage, "m");
   }
 
 }

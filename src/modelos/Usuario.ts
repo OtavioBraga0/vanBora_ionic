@@ -1,7 +1,7 @@
-export interface Aluno {
+export interface Usuario {
     Usuario_lng_Codigo: number;
     Usuario_vch_Nome: string;
-    usuario_dat_Datanascimento: string;
+    Usuario_dat_DataNascimento: string;
     Usuario_vch_Endereco: string;
     Usuario_vch_Numero: string;
     Usuario_vch_Complemento: string;
