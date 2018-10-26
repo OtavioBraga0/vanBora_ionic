@@ -14,5 +14,20 @@
 
 
 <ion-content padding>
-
+    <ion-list>
+      <ion-item *ngFor="let oAluno of arrObjAluno">
+          <ion-grid>
+            <ion-row align-items-center>
+              <ion-col align-items-center>
+                <ion-row>
+                  <ion-col>{{oAluno.Usuario_vch_Nome}}</ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>{{oAluno.Aluno_chr_Confirmacao}}</ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+      </ion-item>
+    </ion-list>
 </ion-content>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
-import { Usuario } from '../../modelos/Usuario';
+import { Aluno } from '../../modelos/Aluno';
 
 @IonicPage()
 @Component({
@@ -10,7 +10,7 @@ import { Usuario } from '../../modelos/Usuario';
 })
 export class GrupoPage {
 
-  public arrObjUsuario: Usuario[];
+  public arrObjAluno: Aluno[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private _http: HttpClient, private _loadingCtrl: LoadingController, private _alertCtrl: AlertController) {
   }
@@ -21,11 +21,11 @@ export class GrupoPage {
     loading.present();
     let postData = new FormData();
     postData.append('Grupo_lng_Codigo', Grupo_lng_Codigo);
-    this._http.post<Usuario[]>(
-      "http://localhost/faculdade/vanBora_webservice/Usuarios",
+    this._http.post<Aluno[]>(
+      "http://localhost/faculdade/vanBora_webservice/aluno",
       postData
-    ).subscribe((arrObjUsuario) => {
-      this.arrObjUsuario = arrObjUsuario;
+    ).subscribe((arrObjAluno) => {
+      this.arrObjAluno = arrObjAluno;
       loading.dismiss();
     },(erro) => {
       loading.dismiss();
