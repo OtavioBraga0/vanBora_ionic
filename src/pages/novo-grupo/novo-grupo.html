@@ -1,0 +1,47 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Novo Grupo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)='cadastro()'>
+    <ion-row>
+      <ion-col class="container-fixed-bottom">
+        <div>
+          <ion-row>
+            <ion-item>
+              <ion-label floating>Nome</ion-label>
+              <ion-input type="text" [(ngModel)]="oGrupo.Grupo_vch_Nome" name="Grupo_vch_Nome"></ion-input>
+            </ion-item>
+          </ion-row>
+          <ion-row>
+            <ion-item>
+              <ion-label floating>Horario</ion-label>
+              <ion-input type="text" [(ngModel)]="oGrupo.Grupo_vch_Horario" name="Grupo_vch_Horario"></ion-input>
+            </ion-item>
+          </ion-row>
+          <ion-row>
+            <ion-item>
+              <ion-label floating>Periodo</ion-label>
+              <ion-select [(ngModel)]="oGrupo.Periodo_lng_Codigo" name="Periodo_lng_Codigo">
+                <ion-option value="1">Matutino</ion-option>
+                <ion-option value="2">Vespertino</ion-option>
+                <ion-option value="3">Norturno</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-row>
+        </div>
+        <div>
+          <ion-row>
+            <button type="submit" ion-button block>Cadastrar</button>
+          </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

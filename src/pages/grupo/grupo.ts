@@ -24,7 +24,7 @@ export class GrupoPage {
     let postData = new FormData();
     postData.append('Grupo_lng_Codigo', Grupo_lng_Codigo);
     this._http.post<Usuario[]>(
-      this._url + "aluno",
+      this._url + "grupo",
       postData
     ).subscribe((arrObjAluno) => {
       this.arrObjAluno = arrObjAluno;

@@ -45,7 +45,7 @@ export class CadastroPage {
     postData.append('Usuario_vch_Complemento', this.oUsuario.Usuario_vch_Complemento);
     postData.append('Usuario_chr_Tipo', this.oUsuario.Usuario_chr_Tipo);
     this._http.post<Usuario[]>(
-      this._url + "cadastraUsuario",
+      this._url + "salvaUsuario",
       postData
     ).subscribe((retorno) => {
       loading.dismiss();

@@ -11,6 +11,8 @@ import { MotoristaHomePage } from '../pages/motorista-home/motorista-home';
 import { AlunoHomePage } from '../pages/aluno-home/aluno-home';
 import { GrupoPage } from '../pages/grupo/grupo';
 import { CadastroPage } from '../pages/cadastro/cadastro';
+import { PerfilPage } from '../pages/perfil/perfil';
+import { NovoGrupoPage } from '../pages/novo-grupo/novo-grupo';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { CadastroPage } from '../pages/cadastro/cadastro';
     MotoristaHomePage,
     AlunoHomePage,
     GrupoPage,
-    CadastroPage
+    CadastroPage,
+    PerfilPage,
+    NovoGrupoPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,9 @@ import { CadastroPage } from '../pages/cadastro/cadastro';
     MotoristaHomePage,
     AlunoHomePage,
     GrupoPage,
-    CadastroPage
+    CadastroPage,
+    PerfilPage,
+    NovoGrupoPage
   ],
   providers: [
     StatusBar,

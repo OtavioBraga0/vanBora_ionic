@@ -1,5 +1,5 @@
 export interface Usuario {
-    Usuario_lng_Codigo: number;
+    Usuario_lng_Codigo: string;
     Usuario_vch_Nome: string;
     Usuario_dat_DataNascimento: string;
     Usuario_vch_Endereco: string;

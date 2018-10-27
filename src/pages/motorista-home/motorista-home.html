@@ -15,19 +15,22 @@
 
 <ion-content padding>
   <ion-list>
-      <ion-item *ngFor="let oGrupo of arrObjGrupo" (click)="selecionaGrupo(oGrupo.Grupo_lng_Codigo)">
-          <ion-grid>
-            <ion-row align-items-center>
-              <ion-col align-items-center>
-                <ion-row>
-                  <ion-col>{{oGrupo.Grupo_vch_Nome}}</ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col>Encerra: {{oGrupo.Grupo_vch_Horario}}</ion-col>
-                </ion-row>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-      </ion-item>
-    </ion-list>
+    <ion-item *ngFor="let oGrupo of arrObjGrupo" (click)="selecionaGrupo(oGrupo.Grupo_lng_Codigo)">
+        <ion-grid>
+          <ion-row align-items-center>
+            <ion-col align-items-center>
+              <ion-row>
+                <ion-col>{{oGrupo.Grupo_vch_Nome}}</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>Encerra: {{oGrupo.Grupo_vch_Horario}}</ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </ion-item>
+  </ion-list>
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="criaGrupo()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>

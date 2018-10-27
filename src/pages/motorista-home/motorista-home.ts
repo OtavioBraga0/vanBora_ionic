@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { Grupo } from '../../modelos/Grupo';
 import { GrupoPage } from '../grupo/grupo';
 import { AppModule } from '../../app/app.module';
+import { NovoGrupoPage } from '../novo-grupo/novo-grupo';
+import { Usuario } from '../../modelos/Usuario';
 
 @IonicPage()
 @Component({
@@ -16,6 +18,7 @@ export class MotoristaHomePage {
   public arrObjGrupo;
   public oGrupo: Grupo;
   private _url:string = AppModule.getUrl();
+  public oUsuario = <Usuario>{};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private _http: HttpClient, private _loadingCtrl: LoadingController, private _alertCtrl: AlertController) {
   }
@@ -23,9 +26,9 @@ export class MotoristaHomePage {
   ionViewDidLoad() {
     let loading = this._loadingCtrl.create({content: "Carregando Grupos ..."});
     loading.present();
-    let Usuario_lng_Codigo = this.navParams.data;
+    this.oUsuario.Usuario_lng_Codigo = this.navParams.data;
     let postData = new FormData();
-    postData.append('Usuario_lng_Codigo', Usuario_lng_Codigo);
+    postData.append('Usuario_lng_Codigo', this.oUsuario.Usuario_lng_Codigo);
     this._http.post<Grupo[]>(
       this._url + "grupo", 
       postData
@@ -44,6 +47,10 @@ export class MotoristaHomePage {
 
   selecionaGrupo(Grupo_lng_Codigo){
     this.navCtrl.push(GrupoPage, Grupo_lng_Codigo);
+  }
+
+  criaGrupo(){
+    this.navCtrl.push(NovoGrupoPage, this.oUsuario.Usuario_lng_Codigo);    
   }
 
 }
