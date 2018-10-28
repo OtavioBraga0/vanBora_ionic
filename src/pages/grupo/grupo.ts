@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, LoadingController, AlertController
 import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../../modelos/Usuario';
 import { AppModule } from '../../app/app.module';
+import { NovoAlunoPage } from '../novo-aluno/novo-aluno';
+import { Grupo } from '../../modelos/Grupo';
 
 @IonicPage()
 @Component({
@@ -11,24 +13,32 @@ import { AppModule } from '../../app/app.module';
 })
 export class GrupoPage {
 
-  public arrObjAluno: Usuario[];
+  public arrObjUsuario: Usuario[];
+  public oGrupo = <Grupo>{};
   private _url:string = AppModule.getUrl();
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private _http: HttpClient, private _loadingCtrl: LoadingController, private _alertCtrl: AlertController) {
   }
 
-  ionViewDidLoad() {
-    let Grupo_lng_Codigo = this.navParams.data;
-    let loading = this._loadingCtrl.create({content: "<ion-icon name='car'></ion-icon>"})
+  ionViewDidEnter() {
+    this.oGrupo.Grupo_lng_Codigo = this.navParams.data;
+    let loading = this._loadingCtrl.create({content: "Carregando lista de Alunos..."})
     loading.present();
     let postData = new FormData();
-    postData.append('Grupo_lng_Codigo', Grupo_lng_Codigo);
+    postData.append('Grupo_lng_Codigo', this.oGrupo.Grupo_lng_Codigo);
     this._http.post<Usuario[]>(
-      this._url + "grupo",
+      this._url + "listaAluno",
       postData
-    ).subscribe((arrObjAluno) => {
-      this.arrObjAluno = arrObjAluno;
+    ).subscribe((arrObjUsuario) => {
+      this.arrObjUsuario = arrObjUsuario;
       loading.dismiss();
+      if(this.arrObjUsuario.length == 0){
+        this._alertCtrl.create({
+          title: "Aviso",
+          subTitle: "Seu Grupo não tem nenhum integrante!",
+          buttons: [{text: "OK"}]
+        }).present();
+      }
     },(erro) => {
       loading.dismiss();
       this._alertCtrl.create({
@@ -37,6 +47,10 @@ export class GrupoPage {
         buttons: [{text: "OK"}]
       }).present();
     })
+  }
+
+  addAluno(){
+    this.navCtrl.push(NovoAlunoPage,this.oGrupo.Grupo_lng_Codigo);
   }
 
 }

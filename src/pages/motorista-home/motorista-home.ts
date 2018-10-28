@@ -24,13 +24,16 @@ export class MotoristaHomePage {
   }
 
   ionViewDidLoad() {
+  }
+
+  ionViewDidEnter(){
     let loading = this._loadingCtrl.create({content: "Carregando Grupos ..."});
     loading.present();
     this.oUsuario.Usuario_lng_Codigo = this.navParams.data;
     let postData = new FormData();
     postData.append('Usuario_lng_Codigo', this.oUsuario.Usuario_lng_Codigo);
     this._http.post<Grupo[]>(
-      this._url + "grupo", 
+      this._url + "listaGrupo", 
       postData
     ).subscribe(arrObjGrupo => {
       this.arrObjGrupo = arrObjGrupo;

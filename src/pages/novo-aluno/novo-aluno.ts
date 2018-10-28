@@ -1,48 +1,46 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { Aluno } from '../../modelos/Aluno';
 import { HttpClient } from '@angular/common/http';
 import { AppModule } from '../../app/app.module';
-import { Grupo } from '../../modelos/Grupo';
-import { MotoristaHomePage } from '../motorista-home/motorista-home';
+import { Usuario } from '../../modelos/Usuario';
 
 @IonicPage()
 @Component({
-  selector: 'page-novo-grupo',
-  templateUrl: 'novo-grupo.html',
+  selector: 'page-novo-aluno',
+  templateUrl: 'novo-aluno.html',
 })
-export class NovoGrupoPage {
+export class NovoAlunoPage {
 
-  public oGrupo =  <Grupo>{};
+  public oAluno = <Aluno>{};
+  public oUsuario = <Usuario>{};
   private _url:string = AppModule.getUrl();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private _loadingCtrl: LoadingController, private _http: HttpClient, private _alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private _loadingCtrl: LoadingController, private _alertCtrl: AlertController, private _http: HttpClient) {
   }
 
   ionViewDidLoad() {
     
   }
 
-  cadastro(){
-    this.oGrupo.Usuario_lng_Codigo = this.navParams.data;
+  cadastrar(){
+    this.oAluno.Grupo_lng_Codigo = this.navParams.data;
     let loading = this._loadingCtrl.create();
     loading.present();
     let postData = new FormData();
-    postData.append('Grupo_vch_Nome', this.oGrupo.Grupo_vch_Nome);
-    postData.append('Grupo_vch_Horario', this.oGrupo.Grupo_vch_Horario);
-    postData.append('Usuario_lng_Codigo', this.oGrupo.Usuario_lng_Codigo);
-    postData.append('Periodo_lng_Codigo', this.oGrupo.Periodo_lng_Codigo);
+    postData.append('Usuario_vch_Celular', this.oUsuario.Usuario_vch_Celular);
+    postData.append('Grupo_lng_Codigo', this.oAluno.Grupo_lng_Codigo);
     this._http.post(
-      this._url + "salvaGrupo",
+      this._url + "salvaAluno",
       postData
     ).subscribe((retorno) => {
       loading.dismiss();
       console.log(retorno);
       this._alertCtrl.create({
         title: "Sucesso",
-        subTitle: "Cadastro Efetuado com sucesso",
+        subTitle: "Aluno Cadastrado",
         buttons: [{text: "OK"}]
       }).present();
-      this.navCtrl.popToRoot()
     },(erro) => {
       loading.dismiss();
       this._alertCtrl.create({

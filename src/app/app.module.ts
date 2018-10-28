@@ -13,6 +13,7 @@ import { GrupoPage } from '../pages/grupo/grupo';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { NovoGrupoPage } from '../pages/novo-grupo/novo-grupo';
+import { NovoAlunoPage } from '../pages/novo-aluno/novo-aluno';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NovoGrupoPage } from '../pages/novo-grupo/novo-grupo';
     GrupoPage,
     CadastroPage,
     PerfilPage,
-    NovoGrupoPage
+    NovoGrupoPage,
+    NovoAlunoPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { NovoGrupoPage } from '../pages/novo-grupo/novo-grupo';
     GrupoPage,
     CadastroPage,
     PerfilPage,
-    NovoGrupoPage
+    NovoGrupoPage,
+    NovoAlunoPage
   ],
   providers: [
     StatusBar,
