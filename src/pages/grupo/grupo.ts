@@ -20,7 +20,19 @@ export class GrupoPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private _http: HttpClient, private _loadingCtrl: LoadingController, private _alertCtrl: AlertController) {
   }
 
+  // editaGrupo(){
+  //   this.navCtrl.push(, this.oGrupo.Usuario_lng_Codigo);
+  // }
+
   ionViewDidEnter() {
+    this.carregaConteudo();
+  }
+
+  addAluno(){
+    this.navCtrl.push(NovoAlunoPage,this.oGrupo.Grupo_lng_Codigo);
+  }
+
+  carregaConteudo(){
     this.oGrupo.Grupo_lng_Codigo = this.navParams.data;
     let loading = this._loadingCtrl.create({content: "Carregando lista de Alunos..."})
     loading.present();
@@ -49,8 +61,11 @@ export class GrupoPage {
     })
   }
 
-  addAluno(){
-    this.navCtrl.push(NovoAlunoPage,this.oGrupo.Grupo_lng_Codigo);
+  recarrega(refresher){
+    setTimeout(() => {
+      this.carregaConteudo();
+      refresher.complete();
+    }, 2000);
   }
 
 }

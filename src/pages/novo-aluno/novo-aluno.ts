@@ -41,6 +41,7 @@ export class NovoAlunoPage {
         subTitle: "Aluno Cadastrado",
         buttons: [{text: "OK"}]
       }).present();
+      this.navCtrl.pop();
     },(erro) => {
       loading.dismiss();
       this._alertCtrl.create({

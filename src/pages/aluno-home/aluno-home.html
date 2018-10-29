@@ -13,13 +13,25 @@
 
 
 <ion-content padding>
+  <ion-refresher (ionRefresh)="recarrega($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Puxe para atualizar"
+      refreshingSpinner="circles"
+      refreshingText="Atualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
   <ion-list>
     <ion-item *ngFor="let oGrupo of arrObjGrupo">
         <ion-grid>
           <ion-row align-items-center>
             <ion-col col-auto>
-              <ion-icon name="checkmark-circle"></ion-icon>
-              <ion-icon name="close-circle"></ion-icon>
+              <div class="{{oGrupo.confirmadoChecked}}" (click)="confirmacao('s', this.oGrupo)">
+                <ion-icon name="checkmark-circle"></ion-icon>
+              </div>
+              <div class="{{oGrupo.negadoChecked}}" (click)="confirmacao('n', this.oGrupo)">
+                <ion-icon name="close-circle"></ion-icon>
+              </div>
             </ion-col>
             <ion-col>
               <ion-row>

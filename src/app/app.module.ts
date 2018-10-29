@@ -14,6 +14,7 @@ import { CadastroPage } from '../pages/cadastro/cadastro';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { NovoGrupoPage } from '../pages/novo-grupo/novo-grupo';
 import { NovoAlunoPage } from '../pages/novo-aluno/novo-aluno';
+import { BrMaskerModule } from 'brmasker-ionic-3';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NovoAlunoPage } from '../pages/novo-aluno/novo-aluno';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    BrMaskerModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

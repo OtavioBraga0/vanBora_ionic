@@ -3,7 +3,7 @@
   <ion-navbar>
     <ion-title>Grupo</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="perfilUsuario()">
+      <button ion-button icon-only (click)="editaGrupo()">
         <ion-icon name="cog"></ion-icon>
       </button>
     </ion-buttons>
@@ -13,16 +13,28 @@
 
 
 <ion-content padding>
+    <ion-refresher (ionRefresh)="recarrega($event)">
+      <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="Puxe para atualizar"
+        refreshingSpinner="circles"
+        refreshingText="Atualizando...">
+      </ion-refresher-content>
+    </ion-refresher>
     <ion-list>
-      <ion-item *ngFor="let oAluno of arrObjAluno">
+      <ion-item *ngFor="let oUsuario of arrObjUsuario">
           <ion-grid>
             <ion-row align-items-center>
               <ion-col align-items-center>
                 <ion-row>
-                  <ion-col>{{oAluno.Usuario_vch_Nome}}</ion-col>
+                  <ion-col>{{oUsuario.Usuario_vch_Nome}}</ion-col>
                 </ion-row>
+              </ion-col>
+              <ion-col>
                 <ion-row>
-                  <ion-col>{{oAluno.Aluno_chr_Confirmacao}}</ion-col>
+                  <ion-col>
+                    <ion-icon name="{{oUsuario.Aluno_chr_Confirmacao === 's' ? 'checkmark-circle' : 'close-circle'}}"></ion-icon>
+                  </ion-col>
                 </ion-row>
               </ion-col>
             </ion-row>
