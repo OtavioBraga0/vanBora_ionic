@@ -11,8 +11,7 @@ import { AppModule } from '../../app/app.module';
 })
 export class PerfilPage {
 
-  private oUsuario = <Usuario>{};
-  private Usuario_lng_Codigo;
+  public oUsuario = <Usuario>{};
   private _url:string = AppModule.getUrl();
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private _loadingCtrl: LoadingController, private _http: HttpClient, private _alertCtrl: AlertController) {
@@ -21,9 +20,9 @@ export class PerfilPage {
   ionViewDidLoad() {
     let loading = this._loadingCtrl.create({content: "Carregando Perfil ..."});
     loading.present();
-    this.Usuario_lng_Codigo = this.navParams.data;
+    this.oUsuario.Usuario_lng_Codigo = this.navParams.data;
     let postData = new FormData();
-    postData.append('Usuario_lng_Codigo', this.Usuario_lng_Codigo);
+    postData.append('Usuario_lng_Codigo', this.oUsuario.Usuario_lng_Codigo);
     this._http.post<Usuario>(
       this._url+"listaUsuario", 
       postData
@@ -47,7 +46,7 @@ export class PerfilPage {
   edita(){
     let loading = this._loadingCtrl.create({content: "Editando Perfil..."});
     let postData = new FormData();
-    postData.append('Usuario_lng_Codigo', this.Usuario_lng_Codigo);
+    postData.append('Usuario_lng_Codigo', this.oUsuario.Usuario_lng_Codigo);
     postData.append('Usuario_vch_Nome', this.oUsuario.Usuario_vch_Nome);
     postData.append('Usuario_dat_DataNascimento', this.oUsuario.Usuario_dat_DataNascimento);
     postData.append('Usuario_vch_Celular', this.oUsuario.Usuario_vch_Celular);
@@ -55,13 +54,13 @@ export class PerfilPage {
     postData.append('Usuario_vch_Numero', this.oUsuario.Usuario_vch_Numero);
     postData.append('Usuario_vch_Complemento', this.oUsuario.Usuario_vch_Complemento);
     postData.append('Usuario_chr_Tipo', this.oUsuario.Usuario_chr_Tipo);
-    console.log(postData);
-    this._http.post<Usuario>(
+    this._http.post(
       this._url+"editaUsuario", 
       postData
-    ).subscribe(() => {
-      loading.dismiss();
+    ).subscribe((retorno) => {
+      loading.dismiss();      
       this.alert("Sucesso","Perfil editado com sucesso","OK");
+      this.navCtrl.popToRoot();
     },(erro => {
       loading.dismiss();
       this.alert("Falha", "Não foi possível atualizar seu Perfil. Tente novamente mais tarde!", "OK");

@@ -3,7 +3,7 @@
   <ion-navbar>
     <ion-title>Grupo</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="editaGrupo()">
+      <button ion-button icon-only (click)="edita()">
         <ion-icon name="cog"></ion-icon>
       </button>
     </ion-buttons>
@@ -24,13 +24,13 @@
     <ion-list>
       <ion-item *ngFor="let oUsuario of arrObjUsuario">
           <ion-grid>
-            <ion-row align-items-center>
-              <ion-col align-items-center>
+            <ion-row align-items-center justify-content-between>
+              <ion-col align-items-center col-10>
                 <ion-row>
                   <ion-col>{{oUsuario.Usuario_vch_Nome}}</ion-col>
                 </ion-row>
               </ion-col>
-              <ion-col>
+              <ion-col col-2>
                 <ion-row>
                   <ion-col>
                     <ion-icon name="{{oUsuario.Aluno_chr_Confirmacao === 's' ? 'checkmark-circle' : 'close-circle'}}"></ion-icon>

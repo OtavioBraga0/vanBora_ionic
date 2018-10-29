@@ -15,6 +15,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { NovoGrupoPage } from '../pages/novo-grupo/novo-grupo';
 import { NovoAlunoPage } from '../pages/novo-aluno/novo-aluno';
 import { BrMaskerModule } from 'brmasker-ionic-3';
+import { PerfilGrupoPage } from '../pages/perfil-grupo/perfil-grupo';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
     CadastroPage,
     PerfilPage,
     NovoGrupoPage,
-    NovoAlunoPage
+    NovoAlunoPage,
+    PerfilGrupoPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
     CadastroPage,
     PerfilPage,
     NovoGrupoPage,
-    NovoAlunoPage
+    NovoAlunoPage,
+    PerfilGrupoPage
   ],
   providers: [
     StatusBar,

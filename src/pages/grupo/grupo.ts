@@ -5,6 +5,7 @@ import { Usuario } from '../../modelos/Usuario';
 import { AppModule } from '../../app/app.module';
 import { NovoAlunoPage } from '../novo-aluno/novo-aluno';
 import { Grupo } from '../../modelos/Grupo';
+import { PerfilGrupoPage } from '../perfil-grupo/perfil-grupo';
 
 @IonicPage()
 @Component({
@@ -20,9 +21,9 @@ export class GrupoPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private _http: HttpClient, private _loadingCtrl: LoadingController, private _alertCtrl: AlertController) {
   }
 
-  // editaGrupo(){
-  //   this.navCtrl.push(, this.oGrupo.Usuario_lng_Codigo);
-  // }
+  edita(){
+    this.navCtrl.push(PerfilGrupoPage, this.oGrupo.Grupo_lng_Codigo);
+  }
 
   ionViewDidEnter() {
     this.carregaConteudo();
