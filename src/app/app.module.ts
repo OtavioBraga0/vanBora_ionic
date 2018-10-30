@@ -61,7 +61,7 @@ import { NovoUsuarioPage } from '../pages/novo-usuario/novo-usuario';
   ]
 })
 export class AppModule {
-  private static url: string = "http://192.168.15.22/faculdade/vanBora_webservice/";
+  private static url: string = "http://192.168.43.78:8090/faculdade/vanBora_webservice/";
   
   static getUrl(){
     return this.url;
