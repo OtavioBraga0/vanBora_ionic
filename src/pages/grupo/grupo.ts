@@ -69,4 +69,26 @@ export class GrupoPage {
     }, 2000);
   }
 
+  exclui(Usuario_lng_Codigo){
+    let loading = this._loadingCtrl.create({content: "Excluindo Aluno..."})
+    loading.present();
+    let postData = new FormData();
+    postData.append('Grupo_lng_Codigo', this.oGrupo.Grupo_lng_Codigo);
+    postData.append('Usuario_lng_Codigo', Usuario_lng_Codigo);
+    this._http.post(
+      this._url + "excluiAluno",
+      postData
+    ).subscribe((retorno) => {
+      loading.dismiss();
+      this.carregaConteudo();
+    },(erro) => {
+      loading.dismiss();
+      this._alertCtrl.create({
+        title: "Falha",
+        subTitle: "Não foi possível carregar os Alunos. Tente novamente mais tarde!",
+        buttons: [{text: "OK"}]
+      }).present();
+    })
+  }
+
 }

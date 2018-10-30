@@ -66,4 +66,21 @@ export class PerfilGrupoPage {
     }))
   }
 
+  exclui(){
+    let loading = this._loadingCtrl.create({content: "Excluindo Grupo..."});
+    let postData = new FormData();
+    postData.append('Grupo_lng_Codigo', this.oGrupo.Grupo_lng_Codigo);
+    this._http.post(
+      this._url+"excluiGrupo", 
+      postData
+    ).subscribe((retorno) => {
+      console.log(retorno);
+      loading.dismiss();      
+      this.navCtrl.popToRoot();
+    },(erro => {
+      loading.dismiss();
+      this.alert("Falha", "Não foi possível excluir seu Grupo. Tente novamente mais tarde!", "OK");
+    }))
+  }
+
 }

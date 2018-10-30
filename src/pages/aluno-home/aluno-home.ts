@@ -52,7 +52,7 @@ export class AlunoHomePage {
       postData
     ).subscribe(() => {
       loading.dismiss();
-      this.alert("Sucesso", "Resposta enviada com sucesso!", "OK");
+      this.carregaConteudo();
     },(erro => {
       loading.dismiss();
       this.alert("Falha", "Não foi possível enviar sua resposta. Tente novamente mais tarde!", "OK");

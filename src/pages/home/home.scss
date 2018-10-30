@@ -1,5 +1,30 @@
 page-home {
-    ion-content{
-        margin-top: 20px
+    ion-grid{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        ion-row{
+            height: 100%;
+            width: 100%;
+            ion-col{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                flex-direction: column;
+                height: 100%;
+                h1{
+                    text-transform: uppercase;
+                    font-weight: 900;
+                }
+                ion-img{
+                    contain: none;
+                }
+            }
+        }
+    }
+
+    .scroll-content{
+        overflow:auto;
     }
 }

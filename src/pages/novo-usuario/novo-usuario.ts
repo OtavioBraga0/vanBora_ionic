@@ -1,54 +1,26 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController } from 'ionic-angular';
-import { HttpClient } from '@angular/common/http';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { Usuario } from '../../modelos/Usuario';
+import { HttpClient } from '@angular/common/http';
 import { AppModule } from '../../app/app.module';
 import { AlunoHomePage } from '../aluno-home/aluno-home';
 import { MotoristaHomePage } from '../motorista-home/motorista-home';
-import { Sim } from '@ionic-native/sim';
-import { NovoUsuarioPage } from '../novo-usuario/novo-usuario';
+import { CadastroPage } from '../cadastro/cadastro';
 
+
+@IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-novo-usuario',
+  templateUrl: 'novo-usuario.html',
 })
-export class HomePage {
+export class NovoUsuarioPage {
 
   public oUsuario = <Usuario>{};
   private _url:string = AppModule.getUrl();
-  public simInfo: any;
-  public cards: any;  
-  public ddd;
-  public number1;
-  public number2;
 
-  constructor(public navCtrl: NavController, private _http: HttpClient, 
+  constructor(public navCtrl: NavController, public navParams: NavParams,
     private _loadingCtrl: LoadingController, private _alertCtrl: AlertController,
-    private _sim: Sim) {}
-
-  ionViewDidLoad() {
-    // this.getSimData();
-    setTimeout(()=>{
-      this.navCtrl.setRoot(NovoUsuarioPage);
-    }, 2000)
-  }
-
-  async getSimData() {
-    try {
-      let simPermission = await this._sim.requestReadPermission();
-      if (simPermission == "OK") {
-        let simData = await this._sim.getSimInfo();
-        this.cards = simData.cards;
-        this.ddd = this.cards[0].phoneNumber.substring(3,5);
-        this.number1 = this.cards[0].phoneNumber.substring(5,10);
-        this.number2 = this.cards[0].phoneNumber.substring(10);
-        this.oUsuario.Usuario_vch_Celular = "("+this.ddd+") "+this.number1+"-"+this.number2;
-
-        this.validaUsuario();
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    private _http: HttpClient) {
   }
 
   validaUsuario(){
@@ -56,6 +28,7 @@ export class HomePage {
     loading.present();
     let postData = new FormData();
     postData.append('Usuario_vch_Celular', this.oUsuario.Usuario_vch_Celular);
+    // console.log(this.oUsuario.Usuario_vch_Celular);
     this._http.post<Usuario>(
       this._url + "validaUsuario",
       postData
@@ -85,5 +58,12 @@ export class HomePage {
     })
   }
 
-  
+  selecionaHomeAluno(){
+    this.navCtrl.push(CadastroPage, "a");
+  }
+
+  selecionaHomeMotorista(){
+    this.navCtrl.push(CadastroPage, "m");
+  }
+
 }

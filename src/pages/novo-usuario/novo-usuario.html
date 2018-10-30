@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        VANBORA
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <div>
+      <ion-item-divider>
+        <h2>Sou novo</h2> 
+      </ion-item-divider>
+      <div padding>
+        <button ion-button block (click)='selecionaHomeAluno()'>
+          Aluno
+        </button>
+        <button ion-button block (click)='selecionaHomeMotorista()'>
+            Motorista
+        </button>
+      </div>
+    </div>
+    <div>
+      <form (ngSubmit)="validaUsuario()">
+        <ion-item-divider>
+          <h2>Já sou usuário</h2> 
+        </ion-item-divider>
+        <div padding>
+          <ion-item>
+            <ion-label floating>Celular</ion-label>
+            <ion-input type="text" [(ngModel)]="oUsuario.Usuario_vch_Celular" name="Usuario_vch_Celular" [brmasker]="{mask: '(00) 00000-0000', len:15}"></ion-input> 
+          </ion-item>
+          <button type="submit" ion-button block>Entrar</button>
+        </div>
+      </form>
+    </div>
+  </ion-content>
+  

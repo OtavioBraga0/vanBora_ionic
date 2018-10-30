@@ -2,6 +2,9 @@ page-aluno-home {
     ion-icon {
         font-size: 2em;
     }
+    .scroll-content{
+        overflow:auto;
+    }
 }
 .ativo{
     display: inline-block; 

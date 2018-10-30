@@ -4,6 +4,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
+import { BrMaskerModule } from 'brmasker-ionic-3';
+import { Sim } from '@ionic-native/sim';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -14,8 +16,8 @@ import { CadastroPage } from '../pages/cadastro/cadastro';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { NovoGrupoPage } from '../pages/novo-grupo/novo-grupo';
 import { NovoAlunoPage } from '../pages/novo-aluno/novo-aluno';
-import { BrMaskerModule } from 'brmasker-ionic-3';
 import { PerfilGrupoPage } from '../pages/perfil-grupo/perfil-grupo';
+import { NovoUsuarioPage } from '../pages/novo-usuario/novo-usuario';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { PerfilGrupoPage } from '../pages/perfil-grupo/perfil-grupo';
     PerfilPage,
     NovoGrupoPage,
     NovoAlunoPage,
-    PerfilGrupoPage
+    PerfilGrupoPage,
+    NovoUsuarioPage
   ],
   imports: [
     BrowserModule,
@@ -47,16 +50,18 @@ import { PerfilGrupoPage } from '../pages/perfil-grupo/perfil-grupo';
     PerfilPage,
     NovoGrupoPage,
     NovoAlunoPage,
-    PerfilGrupoPage
+    PerfilGrupoPage,
+    NovoUsuarioPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Sim,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {
-  private static url: string = "http://localhost/faculdade/vanBora_webservice/";
+  private static url: string = "http://192.168.15.22/faculdade/vanBora_webservice/";
   
   static getUrl(){
     return this.url;
