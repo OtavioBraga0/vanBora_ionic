@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams, LoadingController, AlertController
 import { HttpClient } from '@angular/common/http';
 import { AppModule } from '../../app/app.module';
 import { Grupo } from '../../modelos/Grupo';
-import { MotoristaHomePage } from '../motorista-home/motorista-home';
 
 @IonicPage()
 @Component({
