@@ -2,4 +2,11 @@ page-motorista-home {
     .scroll-content{
         overflow:auto;
     }
+
+    ion-fab button{
+        background-color: cornflowerblue!important;
+        ion-icon{
+            color: white
+        }
+    }
 }

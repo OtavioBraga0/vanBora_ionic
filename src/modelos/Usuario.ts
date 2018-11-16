@@ -7,4 +7,5 @@ export interface Usuario {
     Usuario_vch_Complemento: string;
     Usuario_vch_Celular: string;
     Usuario_chr_Tipo: string;
+    Usuario_vch_DeviceId: string;
 }

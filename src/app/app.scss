@@ -35,3 +35,21 @@ ion-refresher{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3)!important;
     background-color: gray!important;
 }
+
+.toolbar-background{
+    background-color: cornflowerblue!important;
+}
+
+.toolbar-title{
+    color: white;
+}
+
+ion-header{
+    ion-icon{
+        color: white!important
+    }
+}
+
+.back-button-text{
+    color: white
+}

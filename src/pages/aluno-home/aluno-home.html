@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Home do Aluno</ion-title>
+    <ion-title>VANBORA</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="perfilUsuario()">
         <ion-icon name="cog"></ion-icon>
@@ -21,15 +21,15 @@
     </ion-refresher-content>
   </ion-refresher>
   <ion-list>
-    <ion-item *ngFor="let oGrupo of arrObjGrupo">
+    <ion-card *ngFor="let oGrupo of arrObjGrupo">
         <ion-grid>
           <ion-row align-items-center>
             <ion-col col-auto>
               <div class="{{oGrupo.confirmadoChecked}}" (click)="confirmacao('s', this.oGrupo)">
-                <ion-icon name="checkmark-circle"></ion-icon>
+                <ion-icon name="checkmark-circle" ></ion-icon>
               </div>
               <div class="{{oGrupo.negadoChecked}}" (click)="confirmacao('n', this.oGrupo)">
-                <ion-icon name="close-circle" red></ion-icon>
+                <ion-icon name="close-circle" ></ion-icon>
               </div>
             </ion-col>
             <ion-col>
@@ -42,6 +42,6 @@
             </ion-col>
           </ion-row>
         </ion-grid>
-    </ion-item>
+    </ion-card>
   </ion-list>
 </ion-content>

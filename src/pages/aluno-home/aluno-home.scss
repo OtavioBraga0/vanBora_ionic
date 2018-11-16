@@ -12,6 +12,15 @@ page-aluno-home {
         opacity: 0.5;
     }
 }
+
+
+ion-icon[name='checkmark-circle']{
+    color: springgreen
+}
+ion-icon[name='close-circle']{
+    color: firebrick
+}
+
 ion-col > div {
     display: inline-block;
 }

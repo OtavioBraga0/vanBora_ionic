@@ -2,11 +2,6 @@
 
   <ion-navbar>
     <ion-title>Grupo</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="edita()">
-        <ion-icon name="cog"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -50,5 +45,8 @@
     </ion-list>
     <ion-fab right bottom>
       <button ion-fab mini color="primary" (click)="addAluno()"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+    <ion-fab left bottom>
+      <button ion-fab mini color="primary" (click)="edita()"><ion-icon name="information"></ion-icon></button>
     </ion-fab>
 </ion-content>

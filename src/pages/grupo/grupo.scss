@@ -1,6 +1,12 @@
 page-grupo {
     ion-col > ion-icon{
         font-size: 2em;
+        [name='checkmark-circle']{
+            color: springgreen
+        }
+        [name='close-circle']{
+            color: firebrick
+        }
     }
     .scroll-content{
         overflow:auto;

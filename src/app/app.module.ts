@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { BrMaskerModule } from 'brmasker-ionic-3';
-import { Sim } from '@ionic-native/sim';
+import { Device } from '@ionic-native/device'
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -56,7 +56,7 @@ import { NovoUsuarioPage } from '../pages/novo-usuario/novo-usuario';
   providers: [
     StatusBar,
     SplashScreen,
-    Sim,
+    Device,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

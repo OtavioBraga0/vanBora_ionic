@@ -27,4 +27,20 @@ page-home {
     .scroll-content{
         overflow:auto;
     }
+
+    h1{
+        font-weight: bold;
+        font-size: 4em;
+        color: white
+    }
+
+    ion-content{
+        background-color: cornflowerblue!important
+    }
+
+    ion-img{
+        background-color: transparent;
+        height: 100px;
+        width: 100px
+    }
 }
