@@ -6,7 +6,7 @@ import { AppModule } from '../../app/app.module';
 import { AlunoHomePage } from '../aluno-home/aluno-home';
 import { MotoristaHomePage } from '../motorista-home/motorista-home';
 import { NovoUsuarioPage } from '../novo-usuario/novo-usuario';
-import { Device } from '@ionic-native/device';
+// import { Device } from '@ionic-native/device';
 
 @Component({
   selector: 'page-home',
@@ -19,10 +19,11 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, private _http: HttpClient, 
     private _loadingCtrl: LoadingController, private _alertCtrl: AlertController,
-    private _deviceId: Device, private _toastCtrl: ToastController) {}
+    private _toastCtrl: ToastController) {}
 
   ionViewDidEnter() {
-    this.oUsuario.Usuario_vch_DeviceId = this._deviceId.uuid;
+    // this.oUsuario.Usuario_vch_DeviceId = this._deviceId.uuid;
+    this.oUsuario.Usuario_vch_DeviceId = "123456789";
     // this.validaUsuario();
 
     setTimeout(() => {

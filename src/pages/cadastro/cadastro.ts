@@ -5,7 +5,7 @@ import { Usuario } from '../../modelos/Usuario';
 import { AppModule } from '../../app/app.module';
 import { AlunoHomePage } from '../aluno-home/aluno-home';
 import { MotoristaHomePage } from '../motorista-home/motorista-home';
-import { Device } from '@ionic-native/device';
+// import { Device } from '@ionic-native/device';
 
 @IonicPage()
 @Component({
@@ -21,7 +21,7 @@ export class CadastroPage {
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, private _http: HttpClient, 
     private _loadingCtrl: LoadingController, private _toastCtrl: ToastController,
-    private _deviceId: Device, private _alertCtrl: AlertController) {
+    private _alertCtrl: AlertController) {
     this.oUsuario.Usuario_chr_Tipo = this.navParams.data;
   }
 
@@ -32,7 +32,8 @@ export class CadastroPage {
       this.tipoCadastro = "Motorista";
     }
 
-    this.oUsuario.Usuario_vch_DeviceId = this._deviceId.uuid;
+    // this.oUsuario.Usuario_vch_DeviceId = this._deviceId.uuid;
+    this.oUsuario.Usuario_vch_DeviceId = "123456789";
   }
 
   cadastro(){
