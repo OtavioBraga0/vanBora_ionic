@@ -17,9 +17,8 @@ export class HomePage {
   public oUsuario = <Usuario>{};
   private _url:string = AppModule.getUrl();
 
-  constructor(public navCtrl: NavController, private _http: HttpClient, 
-    private _loadingCtrl: LoadingController, private _alertCtrl: AlertController,
-    private _toastCtrl: ToastController) {}
+  constructor(public navCtrl: NavController, private _http: HttpClient,
+    private _alertCtrl: AlertController, private _toastCtrl: ToastController) {}
 
   ionViewDidEnter() {
     // this.oUsuario.Usuario_vch_DeviceId = this._deviceId.uuid;

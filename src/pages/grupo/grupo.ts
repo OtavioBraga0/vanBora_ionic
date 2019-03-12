@@ -6,7 +6,6 @@ import { AppModule } from '../../app/app.module';
 import { NovoAlunoPage } from '../novo-aluno/novo-aluno';
 import { Grupo } from '../../modelos/Grupo';
 import { PerfilGrupoPage } from '../perfil-grupo/perfil-grupo';
-import { PerfilPage } from '../perfil/perfil';
 
 @IonicPage()
 @Component({
